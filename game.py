@@ -1,16 +1,19 @@
 import socket
 import threading
 import pygame
+import setup
 from pygame.locals import QUIT
-import socket
 
-FPS = 60
-WHITE = (255, 255, 255)
-BLACK = (0,0,0)
+FPS = setup.FPS
+WHITE = setup.BGCOLOR
+BLACK = setup.TXTCOLOR
 
-SERVER_IP = '3.93.212.75'
-SERVER_PORT = 8080
-BUFFER_SIZE = 1024
+SERVER_IP = setup.SERVER_IP
+SERVER_PORT = setup.SERVER_PORT
+BUFFER_SIZE = setup.BUFFER_SIZE
+
+SCREENW = setup.WIDTH
+SCREENH = setup.HEIGTH
 
 start_game = False
 score_player1 = 0
@@ -32,15 +35,15 @@ class playerSkin:
         
 
 pygame.init() #Inicia el juego
-window = pygame.display.set_mode((800, 600)) #Dimension de la pantalla
+window = pygame.display.set_mode((SCREENW, SCREENH)) #Dimension de la pantalla
 pygame.display.set_caption("TelePong Champions Edition") 
 
-background_pic = pygame.image.load("background.png").convert()  #Fondo del juego
+background_pic = pygame.image.load(setup.FIELD).convert()  #Fondo del juego
 
-ball = ball("ball.png") #Creacion de la pelota
-player_1 = playerSkin("player1.png")  # Creacion del jugador
+ball = ball(setup.BALL) #Creacion de la pelota
+player_1 = playerSkin(setup.PLAYER1)  # Creacion del jugador
 player_1.x = 60  #Posición en x del jugador 1
-player_2 = playerSkin("player2.png") # Creacion del jugador
+player_2 = playerSkin(setup.PLAYER2) # Creacion del jugador
 player_2.x = 718 #Posición en x del jugador 2
 
 def refresh_screen_and_positions():

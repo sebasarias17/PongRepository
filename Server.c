@@ -123,8 +123,8 @@ void *handle_game(void *arg)
         sendto(args->sockfd, start_msg, strlen(start_msg), 0, (struct sockaddr *)&args->clientAddrs[i], args->addr_size);
     }
 
-    printf("Juego comenzando...\n");
-    log_info("Juego comenzando\n");
+    printf("El juego está comenzando...\n");
+    log_info("El juego está comenzando\n");
 
     Ball ball;
 
