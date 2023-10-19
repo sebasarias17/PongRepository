@@ -6,7 +6,7 @@ from pygame.locals import QUIT
 
 FPS = setup.FPS
 WHITE = setup.BGCOLOR
-BLACK = setup.TXTCOLOR
+TXT_COLOR = setup.TXTCOLOR
 
 SERVER_IP = setup.SERVER_IP
 SERVER_PORT = setup.SERVER_PORT
@@ -53,7 +53,7 @@ def refresh_screen_and_positions():
     window.blit(ball.img, (ball.x, ball.y)) #Pintar la imagen con sus propiedades
     window.blit(player_1.img, (player_1.x, player_1.y)) #pintar el jugador 1 con sus propiedades
     window.blit(player_2.img, (player_2.x, player_2.y)) #pintar el jugador 2 con sus propiedades
-    txt = f"Player 1 {score_player1} : {score_player2} Player 2" #Pintar el marcador del juego
+    txt = f"Player Home {score_player1} : {score_player2} Player Visit" #Pintar el marcador del juego
     signal = font.render(txt, False, WHITE)
     window.blit(signal, (800 / 2 - font.size(txt)[0] / 2, 50))
     
@@ -79,7 +79,7 @@ def listen_for_messages(client_socket): #Metodo que escucha del servidor y nos t
 
 def alerts(alert, y_offset=0): #Se usa para cuando se inicia el juego y mostrar los mensajes que seteamos antes 
     font = pygame.font.Font(None, 60)
-    text_surface = font.render(alert, True, BLACK)
+    text_surface = font.render(alert, True, TXT_COLOR)
     text_rect = text_surface.get_rect(center=(400, 300 + y_offset))
     window.blit(text_surface, text_rect)
     pygame.display.flip()
@@ -96,7 +96,7 @@ def main():
     
     window.fill(WHITE)
     alerts("Bienvenido a Pong Champions Edition!", -20)
-    alerts("Esperando otro jugador...", 20)
+    alerts("Falta un contrincante", 20)
     while not start_game:
         for event in pygame.event.get():
             if event.type == QUIT:

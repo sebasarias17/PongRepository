@@ -12,4 +12,4 @@ FIELD = "background.png"
 
 FPS = 60
 BGCOLOR = (255, 255, 255)
-TXTCOLOR = (0,0,0)
+TXTCOLOR = (255,131,0)

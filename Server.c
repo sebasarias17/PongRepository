@@ -248,9 +248,9 @@ int main(int argc, char *argv[]) {
                     clientAddrs[connected_clients] = clientAddr;
                     connected_clients++;
                     printf("%d", connected_clients);
-                    printf("Cliente %d conectado desde %s:%d\n", connected_clients, inet_ntoa(clientAddr.sin_addr), ntohs(clientAddr.sin_port));
+                    printf("Jugador %d conectado%s:%d\n", connected_clients, inet_ntoa(clientAddr.sin_addr), ntohs(clientAddr.sin_port));
                     char log_message[256];
-                    sprintf(log_message, "Cliente %d conectado desde %s:%d", connected_clients, inet_ntoa(clientAddr.sin_addr), ntohs(clientAddr.sin_port));
+                    sprintf(log_message, "Jugador %d conectado%s:%d", connected_clients, inet_ntoa(clientAddr.sin_addr), ntohs(clientAddr.sin_port));
                     log_info(log_message);
                 }
             }
